@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Interface</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>CRUD Interface</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+  
+  <div class="container">
+    <h2>Create Item</h2>
+    <form id="createForm">
+      <input type="text" id="title" placeholder="Title" required>
+      <textarea id="description" placeholder="Description"></textarea>
+      <button type="submit">Create Item</button>
+    </form>
+    
+    <h2>Items List</h2>
+    <div id="itemsList"></div>
+  </div>
+
+  <script src="/js/crud.js"></script>
+</body>
+</html>
