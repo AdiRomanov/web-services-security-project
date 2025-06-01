@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Lista Cărților</h2>
+
+  <button routerLink="/add" class="btn btn-primary mb-3">Adaugă Carte Nouă</button>
+
+  <table class="table table-striped" *ngIf="books.length > 0; else noBooks">
+    <thead>
+      <tr>
+        <th>Titlu</th>
+        <th>Autor</th>
+        <th>An</th>
+        <th>Acțiuni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.year }}</td>
+        <td>
+          <button [routerLink]="['/edit', book.id]" class="btn btn-sm btn-warning me-2">Editează</button>
+          <button (click)="deleteBook(book.id!)" class="btn btn-sm btn-danger">Șterge</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noBooks>
+    <p>Nu există cărți în baza de date.</p>
+  </ng-template>
+</div>

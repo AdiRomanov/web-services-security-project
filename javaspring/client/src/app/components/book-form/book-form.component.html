@@ -1,0 +1,16 @@
+<h2>{{ bookId ? 'Edit Book' : 'Add Book' }}</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Title:</label>
+  <input formControlName="title" />
+  <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched">Title is required.</div>
+
+  <label>Author:</label>
+  <input formControlName="author" />
+  <div *ngIf="form.get('author')?.invalid && form.get('author')?.touched">Author is required.</div>
+
+  <label>Year:</label>
+  <input formControlName="year" type="number" />
+  <div *ngIf="form.get('year')?.invalid && form.get('year')?.touched">Valid year is required.</div>
+
+  <button type="submit" [disabled]="form.invalid">Save</button>
+</form>
